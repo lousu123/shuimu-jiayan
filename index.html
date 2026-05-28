@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>水沐佳宴 · 全运营方案 · 康养膳食+私房定制</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+:root {
+  --jade: #2D6A4F; --sage: #95B8A0; --cream: #FEFCF6;
+  --sand: #F5EDE0; --warm: #D4A373; --deep: #1B4332;
+  --gray: #64748B; --border: #E2E8F0; --card-bg: #FFFFFF;
+  --coral: #E76F51;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans SC',sans-serif;color:#1E293B;background:var(--cream);line-height:1.8}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;background:linear-gradient(160deg,#1B4332 0%,#2D6A4F 30%,#3A7D5C 55%,#5A9E7A 80%,#7AB894 100%);
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;width:800px;height:800px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,163,115,0.10) 0%,transparent 70%);
+  top:-200px;right:-200px;animation:floatHero 12s ease-in-out infinite;
+}
+@keyframes floatHero{0%,100%{transform:translate(0,0)scale(1)}50%{transform:translate(50px,-50px)scale(1.05)}}
+.hero-content{text-align:center;z-index:1;padding:2rem;max-width:1000px}
+.hero-tag{
+  display:inline-block;background:rgba(212,163,115,0.15);border:1px solid var(--warm);
+  color:#fff;padding:0.35rem 1.8rem;border-radius:50px;font-size:0.8rem;
+  letter-spacing:3px;margin-bottom:1.2rem;backdrop-filter:blur(4px);
+}
+.hero h1{
+  font-family:'Noto Serif SC',serif;font-size:clamp(2rem,5vw,3.8rem);
+  color:#fff;font-weight:900;line-height:1.15;
+}
+.hero h1 span{color:var(--warm)}
+.hero-sub{
+  font-size:clamp(0.95rem,1.5vw,1.15rem);color:rgba(255,255,255,0.55);
+  margin-top:0.8rem;letter-spacing:4px;font-weight:300;
+}
+.hero-meta{
+  display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;
+}
+.hero-meta-item{text-align:center;padding:0.8rem 1.5rem;background:rgba(255,255,255,0.06);border-radius:12px;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.08);min-width:110px}
+.hero-meta-num{font-family:'Noto Serif SC',serif;font-size:1.6rem;font-weight:900;color:var(--warm)}
+.hero-meta-label{font-size:0.7rem;color:rgba(255,255,255,0.5);margin-top:0.15rem;letter-spacing:1px}
+.hero-cta{
+  margin-top:2.5rem;display:inline-block;padding:0.85rem 2.2rem;
+  background:linear-gradient(135deg,var(--warm),#B8956A);color:#fff;
+  border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;
+  letter-spacing:2px;box-shadow:0 8px 25px rgba(212,163,115,0.3);transition:all 0.3s;
+}
+.hero-cta:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(212,163,115,0.45)}
+
+/* ===== NAV ===== */
+nav{
+  position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);padding:0 1rem;overflow-x:auto;
+}
+nav ul{display:flex;gap:0;list-style:none;max-width:1100px;margin:0 auto;padding:0.6rem 0}
+nav ul li{white-space:nowrap}
+nav ul li a{
+  display:block;padding:0.5rem 1rem;color:var(--gray);text-decoration:none;
+  font-size:0.82rem;font-weight:500;transition:all 0.2s;border-radius:6px;
+}
+nav ul li a:hover{color:var(--jade);background:#E8F5E9}
+
+/* ===== SECTION ===== */
+section{padding:5rem 1.5rem;max-width:1100px;margin:0 auto}
+.section-tag{
+  display:inline-block;background:#E8F5E9;color:var(--jade);
+  padding:0.2rem 1rem;border-radius:50px;font-size:0.72rem;font-weight:600;
+  letter-spacing:2px;margin-bottom:0.8rem;
+}
+section h2{
+  font-family:'Noto Serif SC',serif;font-size:clamp(1.6rem,3vw,2.2rem);
+  color:var(--deep);margin-bottom:0.5rem;
+}
+section h2 .sub{font-size:1rem;color:var(--gray);font-weight:400;font-family:'Noto Sans SC',sans-serif}
+.section-desc{color:var(--gray);font-size:0.95rem;margin-bottom:2.5rem;max-width:700px}
+.section-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--jade),var(--warm));border-radius:2px;margin:0.5rem 0 2rem}
+
+/* ===== CARDS ===== */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem;margin:1.5rem 0}
+.card{
+  background:var(--card-bg);border-radius:14px;padding:1.8rem;box-shadow:0 2px 12px rgba(0,0,0,0.05);
+  border:1px solid var(--border);transition:all 0.3s;
+}
+.card:hover{box-shadow:0 6px 20px rgba(0,0,0,0.08)}
+.card .icon{font-size:2rem;margin-bottom:0.6rem}
+.card h3{font-size:1.05rem;color:var(--deep);margin-bottom:0.5rem}
+.card p{font-size:0.88rem;color:var(--gray);line-height:1.7}
+
+/* ===== FULL CARD ===== */
+.full-card{
+  background:var(--card-bg);border-radius:14px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,0.05);
+  border:1px solid var(--border);margin:1.5rem 0;
+}
+.full-card h3{font-size:1.1rem;color:var(--deep);margin-bottom:0.8rem}
+.full-card h3 .emoji{margin-right:0.4rem}
+.full-card ul{list-style:none;padding:0}
+.full-card ul li{
+  padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;
+  display:flex;align-items:flex-start;gap:0.8rem;
+}
+.full-card ul li:last-child{border-bottom:none}
+.full-card ul li .num{
+  display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;
+  border-radius:50%;background:#E8F5E9;color:var(--jade);font-size:0.75rem;
+  font-weight:700;flex-shrink:0;margin-top:0.2rem;
+}
+
+/* ===== HIGHLIGHT BOX ===== */
+.highlight-box{
+  background:linear-gradient(135deg,#E8F5E9,#FFF);border-left:4px solid var(--jade);
+  border-radius:0 12px 12px 0;padding:1.5rem 2rem;margin:1.5rem 0;
+}
+.highlight-box h4{color:var(--deep);font-size:0.95rem;margin-bottom:0.5rem}
+.highlight-box p{color:var(--gray);font-size:0.88rem;line-height:1.7}
+
+/* ===== KPI TABLE ===== */
+.kpi-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.88rem}
+.kpi-table th{background:var(--deep);color:#fff;padding:0.7rem 1rem;text-align:left;font-weight:600}
+.kpi-table td{padding:0.7rem 1rem;border-bottom:1px solid var(--border)}
+.kpi-table tr:nth-child(even){background:#F8FAFC}
+.kpi-table tr:hover{background:#E8F5E9}
+
+/* ===== TIMELINE ===== */
+.timeline{position:relative;padding-left:2rem;margin:1.5rem 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--jade),var(--warm))}
+.timeline-item{position:relative;margin-bottom:1.8rem}
+.timeline-item::before{content:'';position:absolute;left:-1.65rem;top:0.5rem;width:12px;height:12px;border-radius:50%;background:var(--jade);border:3px solid var(--cream)}
+.timeline-item .phase{font-size:0.75rem;color:var(--jade);font-weight:600;letter-spacing:1px}
+.timeline-item h4{font-size:1rem;color:var(--deep);margin:0.1rem 0 0.3rem}
+.timeline-item p{font-size:0.88rem;color:var(--gray);line-height:1.6}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--deep);color:rgba(255,255,255,0.5);text-align:center;
+  padding:2rem;font-size:0.8rem;letter-spacing:1px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  section{padding:3rem 1rem}
+  nav ul li a{padding:0.4rem 0.7rem;font-size:0.75rem}
+  .card-grid{grid-template-columns:1fr}
+  .hero-meta{gap:0.8rem}
+  .hero-meta-item{min-width:85px;padding:0.6rem 0.8rem}
+  .hero-meta-num{font-size:1.3rem}
+  .kpi-table{font-size:0.75rem}
+  .kpi-table th,.kpi-table td{padding:0.4rem 0.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+<div class="hero-content">
+  <div class="hero-tag">🌿 北塘·康养膳食新标杆</div>
+  <h1>水沐佳宴<br><span>全运营方案</span></h1>
+  <div class="hero-sub">私房定制 × 康养膳食 × 美团智能收银</div>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><div class="hero-meta-num">🌿</div><div class="hero-meta-label">康养定位</div></div>
+    <div class="hero-meta-item"><div class="hero-meta-num">🍱</div><div class="hero-meta-label">私房+员工餐</div></div>
+    <div class="hero-meta-item"><div class="hero-meta-num">📍</div><div class="hero-meta-label">北塘商圈</div></div>
+    <div class="hero-meta-item"><div class="hero-meta-num">📱</div><div class="hero-meta-label">美团收银</div></div>
+  </div>
+  <a href="#position" class="hero-cta">👇 查看方案</a>
+</div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav>
+<ul>
+  <li><a href="#position">🎯 定位</a></li>
+  <li><a href="#online">📱 线上运营</a></li>
+  <li><a href="#offline">🏠 线下运营</a></li>
+  <li><a href="#pos">💳 智能收银</a></li>
+  <li><a href="#health">🌿 康养特色</a></li>
+  <li><a href="#schedule">📅 执行节奏</a></li>
+  <li><a href="#budget">💰 预算KPI</a></li>
+</ul>
+</nav>
+
+<!-- ===== 1. 定位 ===== -->
+<section id="position">
+  <div class="section-tag">BRAND POSITIONING</div>
+  <h2>品牌定位 <span class="sub">· 北塘康养膳食·私房定制</span></h2>
+  <div class="section-divider"></div>
+  <p class="section-desc">水沐佳宴位于滨海新区北塘水木清华园，紧邻京津高速出口。以「康养膳食+私房定制」双模式，服务社区居民、康养客群及周边企业。</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="icon">🌿</div>
+      <h3>康养膳食</h3>
+      <p>低盐低油·药膳炖品·时令养生<br>面向中老年/亚健康/养生人群<br>—— 健康餐饮赛道差异化定位</p>
+    </div>
+    <div class="card">
+      <div class="icon">🍽️</div>
+      <h3>私房定制</h3>
+      <p>家宴/生日宴/商务宴/康养宴<br>按需定制菜单·包间私密体验<br>—— 高客单·高品质·高口碑</p>
+    </div>
+    <div class="card">
+      <div class="icon">🍱</div>
+      <h3>员工餐</h3>
+      <p>周边企业/康养机构团餐配送<br>营养搭配·批量出餐·准时送达<br>—— 稳定现金流·薄利多销</p>
+    </div>
+    <div class="card">
+      <div class="icon">📍</div>
+      <h3>北塘区位优势</h3>
+      <p>京津高速塘汉路出口旁·交通便利<br>水木清华园底商·社区客群稳定<br>—— 北塘商圈餐饮稀缺·蓝海市场</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h4>🎯 核心差异化 · 三线并进</h4>
+    <p><strong>① 康养线</strong>（健康膳食+养生套餐）→ 抢占北塘康养餐饮空白<br>
+       <strong>② 私房线</strong>（定制宴席+包间服务）→ 抓家庭/商务高品质需求<br>
+       <strong>③ 团餐线</strong>（企业/机构员工餐配送）→ 稳定流水·品牌曝光</p>
+  </div>
+</section>
+
+<!-- ===== 2. 线上运营 ===== -->
+<section id="online">
+  <div class="section-tag">ONLINE OPERATIONS</div>
+  <h2>线上运营 <span class="sub">· 从0到1快速起盘</span></h2>
+  <div class="section-divider"></div>
+  <p class="section-desc">新店上线，美团/大众点评为核心阵地，私域+抖音小红书协同打基础。</p>
+
+  <div class="full-card">
+    <h3><span class="emoji">🌟</span> 美团·点评 — 新店起步三步走</h3>
+    <ul>
+      <li><span class="num">1</span> <strong>店铺页装修：</strong>开业前完成点评店铺页上线——品牌故事（康养理念）+环境照片（装修效果图）+菜单预展示+康养膳食理念介绍</li>
+      <li><span class="num">2</span> <strong>开业团购引流：</strong>¥9.9养生粥品尝鲜（引流款）· ¥68双人康养套餐（体验款）· ¥168四人家庭宴（利润款）· 私房定制宴（到店咨询）</li>
+      <li><span class="num">3</span> <strong>评分起势计划：</strong>首月目标4.5星——开业前7天到店顾客每桌引导收藏打卡送养生饮·好评激励（合规方法：收藏打卡送杂粮礼包）</li>
+    </ul>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="icon">💬</div>
+      <h3>私域社群</h3>
+      <p>• 企业微信+社群：开业前建「水沐佳宴·康养生活群」<br>
+         • 群内容：每日养生小贴士/每周菜品上新/会员专属优惠<br>
+         • 目标：开业前蓄客200人，首月社群500人</p>
+    </div>
+    <div class="card">
+      <div class="icon">🎵</div>
+      <h3>小红书·抖音</h3>
+      <p>• 笔记方向：北塘新店探秘/康养膳食怎么吃/私房菜定制体验<br>
+         • 内容素材：开放厨房制作过程/养生汤品/包间环境<br>
+         • 开业前开始种草，开业当天集中发布</p>
+    </div>
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>推广通</h3>
+      <p>• 开业首月投入¥3,000推广通（新店加速曝光）<br>
+         • 定向：北塘3km+塘沽城区·30-65岁·健康养生兴趣人群<br>
+         • 智能收银数据反哺：监测曝光→点击→核销转化率</p>
+    </div>
+    <div class="card">
+      <div class="icon">📱</div>
+      <h3>美团收银·线上能力</h3>
+      <p>• 团购自动核销：扫码即验·无需人工录单<br>
+         • 外卖自动接单：康养套餐上线外卖平台<br>
+         • 评价管理：差评预警+AI回复+好评引导</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. 线下运营 ===== -->
+<section id="offline">
+  <div class="section-tag">OFFLINE OPERATIONS</div>
+  <h2>线下运营 <span class="sub">· 康养体验式餐厅</span></h2>
+  <div class="section-divider"></div>
+  <p class="section-desc">把「健康养生」理念融入每个线下触点，让顾客进店就感受到康养氛围。</p>
+
+  <div class="full-card">
+    <h3><span class="emoji">🌿</span> 门店体验设计</h3>
+    <ul>
+      <li><span class="num">1</span> <strong>门头设计：</strong>突出「康养膳食」标识——绿底金字招牌，门口设「今日养生推荐」小黑板</li>
+      <li><span class="num">2</span> <strong>店内氛围：</strong>绿植装饰+养生文化墙（二十四节气养生/药膳食补知识）+暖光照明</li>
+      <li><span class="num">3</span> <strong>明档展示：</strong>炖品/养生汤现场熬制展示——视觉+嗅觉双重体验</li>
+      <li><span class="num">4</span> <strong>包间服务：</strong>2-3个私密包间·适合家宴/商务宴·可定制菜单和场景布置</li>
+      <li><span class="num">5</span> <strong>外卖窗口：</strong>门口设外卖取餐口——员工餐/团餐配送独立动线·不影响堂食</li>
+    </ul>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="icon">🏪</div>
+      <h3>社区渗透</h3>
+      <p>• 水木清华园社区合作：业主群福利/物业联盟<br>
+         • 北塘街道社区活动赞助：重阳节/端午等节日活动<br>
+         • 周边企业拜访：企业团餐合作洽谈</p>
+    </div>
+    <div class="card">
+      <div class="icon">🎉</div>
+      <h3>开业活动</h3>
+      <p>• 前7天·全场9折+到店送养生饮<br>
+         • 前50位充值会员额外赠礼<br>
+         • 邀请北塘社区代表/周边企业试吃<br>
+         • 「康养膳食体验日」免费品鉴药膳汤</p>
+    </div>
+    <div class="card">
+      <div class="icon">🕐</div>
+      <h3>低谷时段激活</h3>
+      <p>• 14:00-17:00 养生下午茶：养生粥品+药膳点心套餐¥19.9<br>
+         • 智能收银「时段切换」自动生效<br>
+         • 目标：低谷时段营收提升20%</p>
+    </div>
+    <div class="card">
+      <div class="icon">👨‍🍳</div>
+      <h3>服务话术</h3>
+      <p>• 迎宾：「您好，欢迎来到水沐佳宴，今天推荐XX养生汤」<br>
+         • 买单：「办会员享9折+每月送养生礼包哦」<br>
+         • 送客：「送您一份杂粮伴手礼，扫码收藏店铺下次用」</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. 智能收银 ===== -->
+<section id="pos">
+  <div class="section-tag">SMART POS SYSTEM</div>
+  <h2>美团智能版收银 <span class="sub">· 新店数字化起步</span></h2>
+  <div class="section-divider"></div>
+  <p class="section-desc">水沐佳宴从开业就使用美团智能收银，一步到位实现数字化运营——不用走「传统收银→换系统」的弯路。</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="icon">💳</div>
+      <h3>收银·点餐</h3>
+      <p>• 扫码点餐：桌边扫码下单，减少服务员成本<br>
+         • 双屏收银：顾客屏展示金额+会员权益+收藏打卡<br>
+         • 聚合支付：微信/支付宝/美团支付一码搞定</p>
+    </div>
+    <div class="card">
+      <div class="icon">👑</div>
+      <h3>会员体系</h3>
+      <p>• 四级会员：普卡→银卡(年消费¥800)→金卡(¥2,000)→黑卡(¥5,000)<br>
+         • 储值方案：充500送60/充1,000送150/充3,000送500<br>
+         • 康养特色权益：黑卡会员享每月养生礼盒+定制膳食方案</p>
+    </div>
+    <div class="card">
+      <div class="icon">📈</div>
+      <h3>数据·经营看板</h3>
+      <p>• 实时看板：当日营收/翻台率/客单价/会员新增<br>
+         • 菜品分析：热销榜/康养菜品销量占比分析<br>
+         • 时段分析：高峰/低谷分布，指导排班和促销</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔗</div>
+      <h3>供应链</h3>
+      <p>• 药材/食材库存管理：进货批次·效期预警<br>
+         • 智能备餐：根据历史销量预估次日备货量<br>
+         • 快驴对接：智能下单→到货验收→库存更新</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h4>💡 为什么新店就该用美团收银？</h4>
+    <p>传统做法：传统收银（几千块）→ 生意好了发现功能不够 → 再花几万换美团 → 数据迁移麻烦<br>
+       <strong>正确做法：开业就用美团收银。</strong>一次到位，团购核销·外卖接单·会员管理·数据分析·供应链管理全打通——省心省钱省时间。而且<strong>¥1149起（青春版硬件+软件）</strong>，新店起步无压力。</p>
+  </div>
+</section>
+
+<!-- ===== 5. 康养特色 ===== -->
+<section id="health">
+  <div class="section-tag">HEALTH & WELLNESS</div>
+  <h2>康养膳食体系 <span class="sub">· 差异化竞争核心</span></h2>
+  <div class="section-divider"></div>
+  <p class="section-desc">康养不是噱头，是真需求——天津60岁以上人口占比超24%，银发经济+健康餐饮是确定性的增长赛道。</p>
+
+  <div class="full-card">
+    <h3><span class="emoji">🌿</span> 康养产品矩阵</h3>
+    <ul>
+      <li><span class="num">1</span> <strong>养生汤品系列：</strong>每日一汤（如：当归黄芪鸡汤/五指毛桃猪骨汤/石斛炖瘦肉），明档现熬·按盅售卖·¥28-68/盅</li>
+      <li><span class="num">2</span> <strong>药膳套餐系列：</strong>四时养生套餐——春季护肝·夏季清心·秋季润肺·冬季补肾，¥88-168/套</li>
+      <li><span class="num">3</span> <strong>低GI健康餐：</strong>糖尿病/三高人群定制餐（私房定制线），需提前预约</li>
+      <li><span class="num">4</span> <strong>杂粮主食系列：</strong>杂粮饭/全麦馒头/山药糕，代替精米白面，健康加分</li>
+      <li><span class="num">5</span> <strong>员工营养餐：</strong>与康养机构/企业合作，按周定制营养食谱·每餐¥15-25</li>
+    </ul>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="icon">🏥</div>
+      <h3>康养机构合作</h3>
+      <p>• 周边养老院/护理院团餐供应<br>
+         • 康养机构活动餐饮外烩<br>
+         • 共同举办「康养膳食公开课」<br>
+         • 机构会员到店享专属折扣</p>
+    </div>
+    <div class="card">
+      <div class="icon">📅</div>
+      <h3>二十四节气营销</h3>
+      <p>• 每个节气推一道时令养生菜<br>
+         • 节气海报朋友圈+社群传播<br>
+         • 节气当天到店送时令养生饮<br>
+         • 打造「跟着节气吃」IP内容</p>
+    </div>
+    <div class="card">
+      <div class="icon">🎁</div>
+      <h3>康养伴手礼</h3>
+      <p>• 养生汤料包（搭配好的药材包）<br>
+         • 杂粮礼盒（本地五谷杂粮组合）<br>
+         • 会员充值赠送/节日礼盒销售<br>
+         • 品牌延伸：打开第二增长曲线</p>
+    </div>
+    <div class="card">
+      <div class="icon">🏆</div>
+      <h3>康养标签打造</h3>
+      <p>• 点评店铺打标「健康餐饮/养生」<br>
+         • 申请天津康养餐饮示范店认证<br>
+         • 参与康养产业博览会/论坛<br>
+         • 打造北塘康养餐饮第一品牌</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. 执行节奏 ===== -->
+<section id="schedule">
+  <div class="section-tag">EXECUTION PLAN</div>
+  <h2>执行节奏 <span class="sub">· 装修→开业→稳定运营</span></h2>
+  <div class="section-divider"></div>
+  <p class="section-desc">水沐佳宴目前装修中，分三阶段推进：装修期蓄客·开业期引爆·运营期稳定。</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="phase">📐 第一阶段 · 装修期（现在-开业前）</div>
+      <h4>蓄客准备 · 基础搭建</h4>
+      <p>• 美团收银系统下单安装（装修同步走线）<br>
+         • 大众点评店铺页上线（提前30天可上线）· 环境照/菜品图提前上传<br>
+         • 企业微信建群蓄水：启动「水沐佳宴·康养生活群」· 目标蓄客200人<br>
+         • 小红书/抖音种草号启动：装修进度分享+康养理念传播</p>
+    </div>
+    <div class="timeline-item">
+      <div class="phase">🎉 第二阶段 · 开业首月</div>
+      <h4>快速起势 · 攒口碑冲评分</h4>
+      <p>• 开业7天爆破活动：9折+养生饮免费+打卡送杂粮礼包<br>
+         • 团购上线：引流款+利润款组合上线<br>
+         • 推广通投放：首月¥3,000定向北塘+塘沽<br>
+         • 目标：首月评分4.5·社群500人·会员300+</p>
+    </div>
+    <div class="timeline-item">
+      <div class="phase">📈 第三阶段 · 第2-3个月</div>
+      <h4>康养品牌成型 · 团餐启动</h4>
+      <p>• 周围企业/康养机构团餐合作洽谈<br>
+         • 二十四节气养生菜系列上线<br>
+         • 会员储值活动推进：充500送60限时<br>
+         • 数据驱动优化：智能收银分析→调整菜品/定价/活动</p>
+    </div>
+    <div class="timeline-item">
+      <div class="phase">🌟 第四阶段 · 第4-6个月</div>
+      <h4>区域标杆 · 康养品牌冲刺</h4>
+      <p>• 评分稳定4.8+·冲刺北塘商圈人气榜<br>
+         • 康养伴手礼上线（养生汤料包+杂粮礼盒）<br>
+         • 社区活动常态化：每月1次康养膳食公开课<br>
+         • 评估美团收银运营数据，优化盈利模型</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. 预算KPI ===== -->
+<section id="budget">
+  <div class="section-tag">BUDGET & KPI</div>
+  <h2>预算与KPI <span class="sub">· 算好账·定目标</span></h2>
+  <div class="section-divider"></div>
+
+  <h3 style="color:var(--deep);margin-top:1.5rem">💰 首期投入预算</h3>
+  <table class="kpi-table">
+    <tr><th>项目</th><th>预算</th><th>说明</th></tr>
+    <tr><td>美团智能收银系统</td><td>¥1,149起</td><td>青春版硬件+软件·按实际需求选配</td></tr>
+    <tr><td>开业团购推广</td><td>¥5,000</td><td>达人探店2条+推广通首月+物料</td></tr>
+    <tr><td>店铺装修相关</td><td>另计</td><td>门头设计/店内康养文化墙/包间</td></tr>
+    <tr><td>会员首充补贴</td><td>¥3,000</td><td>充500送60补贴成本</td></tr>
+    <tr><td>开业物料</td><td>¥2,000</td><td>桌面卡/海报/菜单/养生文化墙</td></tr>
+    <tr><td>合计估算</td><td><strong>¥11,000+</strong></td><td>不含装修和智能收银系统费用</td></tr>
+  </table>
+
+  <h3 style="color:var(--deep);margin-top:2rem">🎯 阶段性KPI目标</h3>
+  <table class="kpi-table">
+    <tr><th>阶段</th><th>月营收目标</th><th>评分</th><th>会员新增</th><th>社群人数</th><th>团购核销率</th></tr>
+    <tr><td>开业首月</td><td>¥60,000+</td><td>冲4.5</td><td>300+</td><td>500+</td><td>≥70%</td></tr>
+    <tr><td>第2-3个月</td><td>¥100,000+</td><td>4.6+</td><td>累计800+</td><td>800+</td><td>≥75%</td></tr>
+    <tr><td>第4-6个月</td><td>¥150,000+</td><td>4.7+</td><td>累计2,000+</td><td>1,200+</td><td>≥75%</td></tr>
+  </table>
+
+  <h3 style="color:var(--deep);margin-top:2rem">📊 核心指标健康线</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="icon">🔄</div>
+      <h3>翻台率</h3>
+      <p>午市≥1.5轮 / 晚市≥1.5轮<br>全天≥2.5轮（新店首月可适当放宽）</p>
+    </div>
+    <div class="card">
+      <div class="icon">💵</div>
+      <h3>客单价</h3>
+      <p>堂食¥60-80/人<br>
+         康养套餐¥88-168/套<br>
+         私房定制¥150+/人</p>
+    </div>
+    <div class="card">
+      <div class="icon">⭐</div>
+      <h3>评价管理</h3>
+      <p>首月月增60+条评价<br>
+         差评回复率100%<br>
+         响应时间＜30分钟</p>
+    </div>
+    <div class="card">
+      <div class="icon">👥</div>
+      <h3>会员转化率</h3>
+      <p>到店会员转化率≥30%<br>
+         即每3人到店至少有1人注册会员<br>
+         康养套餐用户转化率≥50%</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>水沐佳宴 · 全运营方案</p>
+  <p style="margin-top:0.5rem;font-size:0.7rem">方案出品：美团1024运营助手 · 2026年5月</p>
+</footer>
+
+</body>
+</html>
